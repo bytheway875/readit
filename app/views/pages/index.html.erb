@@ -1,1 +1,11 @@
-<h1>Welcome to my Homepage!</h1>
+<h1>Welcome to MakerSquare Readit!</h1>
+
+<h3><%= link_to "Submit a Link", new_link_path%></h2>
+
+<br><br>
+
+<h4>See what MKS is talking about...</h4>
+<% @links.each do |link|%>
+	<%= link_to link.title, link %>
+	<br/>
+<% end %>
