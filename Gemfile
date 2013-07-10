@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'haml'
 gem 'quiet_assets'
+gem 'will_paginate'
 
 
 # Gems used only for assets and not required
