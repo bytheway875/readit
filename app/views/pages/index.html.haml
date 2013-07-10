@@ -1,0 +1,20 @@
+%h1 Welcome to MakerSquare Readit!
+
+%h3= link_to "Submit a Link", new_link_path
+
+
+%h4 See what MKS is talking about...
+
+%ul
+  -@links.each do |link|
+    -if link.url == nil
+      %li= link_to link.title, link.url
+      = link_to 'comments', link
+      %br
+    -else 
+      %li= link_to link.title, link 
+      = link_to 'Comments', link
+      %br
+
+
+= will_paginate @links

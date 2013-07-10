@@ -5,25 +5,28 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <% if current_user.present? %>
-    <%= "Hey, #{current_user.username}!" %>
-    <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign In", new_user_session_path %>
-    |
-    <%= link_to "Register", new_user_registration_path %>
-  <% end %>
-  
-  <p class="notice"><%= notice %></p>
-  <% if flash[:alert].present? %>
-    <p class="alert"><%= alert %></p>
-  <% end %>
 
-
+  <div class = "login">
+    <% if current_user.present? %>
+      <%= "Hey, #{current_user.username}!" %>
+      <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Sign In", new_user_session_path %>
+      |
+      <%= link_to "Register", new_user_registration_path %>
+    <% end %>
+    
+    <p class="notice"><%= notice %></p>
+    <% if flash[:alert].present? %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+  </div>
 <%= yield %>
 
 </body>
