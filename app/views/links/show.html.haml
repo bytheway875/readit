@@ -1,8 +1,16 @@
 %h1= link_to @link.title, @link.url
 %p= @link.description
 
-%h2 Make a Comment
-= form_for [@link,@comment] do |f|
+%h2 Comments
+- @comments.each do |comment|
+  %p= comment.message
+  %p= comment.user.username
+  %br
+
+
+
+%h3 Add a Comment
+= form_for [@link, @comment] do |f|
 
   - if @comment.errors.any? 
     #error_explanation
@@ -13,7 +21,6 @@
       %li= msg
 
   .field
-    = f.label :message
     = f.text_area :message, :placeholder => "What do you think?"
 
   

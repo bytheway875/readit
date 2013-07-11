@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
   def create
     # Don't need to do 'new' because there are no validations
-    @comment = current_user.comments.create(params[:comment]).merge(link_id: params[:link_id])
+    @comment = current_user.comments.create(params[:comment].merge(link_id: params[:link_id]))
     # .merge adds the link_id to the :comment param, instead of only storing it seperately.
     redirect_to :back
   end
